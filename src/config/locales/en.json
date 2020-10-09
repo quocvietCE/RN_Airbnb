@@ -1,0 +1,22 @@
+{
+    "login": {
+        "email": "Email",
+        "password": "Password",
+        "emailRequired": "Email address is required",
+        "emailInvalid": "Email address must have @ and.",
+        "passwordRequired": "Password is required",
+        "formTitle": "Login To Your Account",
+        "redirectSignUp": "Sign up",
+        "forgotPassword": "Forgot your password?",
+        "reset": "Reset",
+        "loginBtn": "Login",
+        "textLogin": "Login",
+        "errorMsg": "Unable to login at the moment. Please try again"
+    },
+    "error": "Error",
+    "okay": "Okay",
+    "api_error_msg": {
+        "errorGeneral": "Request fail! Please try again."
+    },
+    "errorGeneral": "Request fail! Please try again."
+}

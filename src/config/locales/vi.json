@@ -1,0 +1,22 @@
+{
+    "login": {
+        "email": "Địa chỉ email",
+        "password": "Mật khẩu",
+        "emailRequired": "Địa chỉ e-mail là bắt buộc",
+        "emailInvalid": "Địa chỉ email phải có @ và .",
+        "passwordRequired": "Mật khẩu là bắt buộc",
+        "formTitle": "Tài khoản của bạn",
+        "redirectSignUp": "Đăng ký",
+        "forgotPassword": "Khôi phục mật khẩu",
+        "reset": "Khôi phục",
+        "loginBtn": "Đăng nhập",
+        "textLogin": "Đăng nhập",
+        "errorMsg": "Không thể đăng nhập ngay bây giờ. Xin vui lòng thử lại"
+    },
+    "error": "Lỗi",
+    "okay": "Okay",
+    "api_error_msg": {
+        "errorGeneral": "Có lỗi trong quá trình thực hiện, vui lòng thực hiện."
+    },
+    "errorGeneral": "Có lỗi trong quá trình thực hiện, vui lòng thực hiện."
+}
