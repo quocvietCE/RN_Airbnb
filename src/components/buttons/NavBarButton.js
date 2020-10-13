@@ -1,26 +1,22 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 class NavBarButton extends Component {
   render() {
-    const { location, text, color, icon, handleButtonPress } = this.props;
+    const {location, text, color, icon, handleButtonPress} = this.props;
     const marginPosition =
-      location === "right" ? { marginRight: 20 } : { marginLeft: 20 };
+      location === 'right' ? {marginRight: 20} : {marginLeft: 20};
     let content;
     if (text) {
       content = (
-        <Text style={[{ color }, marginPosition, styles.buttonText]}>
-          {text}
-        </Text>
+        <Text style={[{color}, marginPosition, styles.buttonText]}>{text}</Text>
       );
     } else if (icon) {
       content = <View style={marginPosition}>{icon}</View>;
     }
     return (
-      <TouchableOpacity onPress={handleButtonPress}>
-        {content}
-      </TouchableOpacity>
+      <TouchableOpacity onPress={handleButtonPress}>{content}</TouchableOpacity>
     );
   }
 }
@@ -32,11 +28,11 @@ NavBarButton.propTypes = {
   icon: PropTypes.object,
   handleButtonPress: PropTypes.func.isRequired,
   location: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
 };
 
 const styles = StyleSheet.create({
   buttonText: {
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
 });

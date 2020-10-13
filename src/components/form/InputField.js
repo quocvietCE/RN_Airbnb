@@ -17,15 +17,15 @@ class InputField extends Component {
     super(props);
     this.state = {
       secureInput: !(props.inputType === 'text' || props.inputType === 'email'),
-      scaleCheckmarkValue: new Animated.Value(0),
+      scaleCheckMarkValue: new Animated.Value(0),
       inputValue: props.defaultValue,
     };
     this.toggleShowPassword = this.toggleShowPassword.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
   }
 
-  scaleCheckmark(value) {
-    Animated.timing(this.state.scaleCheckmarkValue, {
+  scaleCheckMark(value) {
+    Animated.timing(this.state.scaleCheckMarkValue, {
       toValue: value,
       duration: 400,
       easing: Easing.easeOutBack,
@@ -53,14 +53,14 @@ class InputField extends Component {
       inputType,
       customStyle,
       inputStyle,
-      onChangeText,
-      showCheckmark,
+      // onChangeText,
+      showCheckMark,
       autoFocus,
       autoCapitalize,
       placeholder,
-      defaultValue,
+      // defaultValue,
     } = this.props;
-    const {secureInput, scaleCheckmarkValue, inputValue} = this.state;
+    const {secureInput, scaleCheckMarkValue, inputValue} = this.state;
     const fontSize = labelTextSize || 14;
     const fontWeight = labelTextWeight || '700';
     const color = labelColor || colors.white;
@@ -72,13 +72,13 @@ class InputField extends Component {
       customInputStyle.paddingBottom = 5;
     }
 
-    const iconScale = scaleCheckmarkValue.interpolate({
+    const iconScale = scaleCheckMarkValue.interpolate({
       inputRange: [0, 0.5, 1],
       outputRange: [0.01, 1.6, 1],
     });
 
-    const scaleValue = showCheckmark ? 1 : 0;
-    this.scaleCheckmark(scaleValue);
+    const scaleValue = showCheckMark ? 1 : 0;
+    this.scaleCheckMark(scaleValue);
 
     return (
       <View style={[customStyle, styles.wrapper]}>
@@ -131,7 +131,7 @@ InputField.propTypes = {
   inputType: PropTypes.string.isRequired,
   customStyle: PropTypes.object,
   onChangeText: PropTypes.func,
-  showCheckmark: PropTypes.bool.isRequired,
+  showCheckMark: PropTypes.bool.isRequired,
   autoFocus: PropTypes.bool,
   autoCapitalize: PropTypes.bool,
   labelTextWeight: PropTypes.string,

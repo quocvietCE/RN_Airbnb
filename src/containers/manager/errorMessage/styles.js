@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Fonts} from '../../../themes';
+import {colors, Fonts} from '../../../themes';
 
 export default StyleSheet.create({
   container: {
@@ -11,7 +11,7 @@ export default StyleSheet.create({
     width: '80%',
     paddingHorizontal: 10,
     paddingBottom: 10,
-    backgroundColor: Colors.mainBg,
+    backgroundColor: colors.mainBg,
     borderRadius: 5,
   },
   titleErrorBox: {
@@ -20,8 +20,8 @@ export default StyleSheet.create({
     padding: 10,
   },
   errorText: {
-    fontSize: Fonts.size.h5,
-    fontFamily: Fonts.type.bold,
+    fontSize: Fonts.size.h4, // 26
+    fontFamily: 'bold',
   },
   infoErrorBox: {
     paddingVertical: 20,
@@ -36,7 +36,7 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
     ...Fonts.style.normal,
     borderRadius: 5,
-    color: Colors.error1,
+    color: colors.red,
     paddingVertical: 10,
   },
   btnNormal: {
@@ -47,11 +47,11 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(14, 115, 15, 1)',
   },
   txtBtnNormal: {
-    ...Fonts.style.h5,
+    fontSize: Fonts.size.h5, // 20
     fontFamily: Fonts.type.bold,
     fontWeight: 'bold',
     lineHeight: 60,
     textAlign: 'center',
-    color: Colors.snow,
+    color: colors.white,
   },
 });

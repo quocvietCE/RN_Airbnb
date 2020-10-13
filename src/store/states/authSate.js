@@ -1,8 +1,4 @@
 const initState = {
-  resLogin: {},
-  account: null,
-  token: null,
-
   loggedInState: null,
 };
 

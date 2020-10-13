@@ -8,8 +8,13 @@ const login = (email, password) => ({
   },
 });
 
+const logout = () => ({
+  type: AUTH_ACTION.LOG_OUT,
+});
+
 const authAction = {
   login,
+  logout,
 };
 
 export default authAction;

@@ -44,7 +44,7 @@ class Notification extends Component {
     showNotification
       ? this.animateNotification(0)
       : this.animateNotification(-80);
-    const {positionValue} = this.state;
+    // const {positionValue} = this.state;
     return (
       <Animated.View
         style={[

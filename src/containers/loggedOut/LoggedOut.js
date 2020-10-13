@@ -1,23 +1,18 @@
-import React, { Component } from "react";
-import {
-  Text,
-  View,
-  Image,
-  TouchableHighlight
-} from "react-native";
+import React, {Component} from 'react';
+import {Text, View, Image, TouchableHighlight} from 'react-native';
 import {colors} from '../../themes';
-import BounderButton from "../../components/buttons/RounderButton";
-import Icon from "react-native-vector-icons/FontAwesome";
-import { stylesApp } from "../../themes";
-import NavBarButton from "../../components/buttons/NavBarButton";
+import BounderButton from '../../components/buttons/RounderButton';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {stylesApp} from '../../themes';
+import NavBarButton from '../../components/buttons/NavBarButton';
 import styles from './styles';
 Icon.loadFont();
 
 class LoggedOut extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    headerRight: (
+  static navigationOptions = ({navigation}) => ({
+    headerRight: () => (
       <NavBarButton
-        handleButtonPress={() => navigation.navigate("Login")}
+        handleButtonPress={() => navigation.navigate('LoginStack')}
         location="right"
         color={colors.white}
         text="Log In"
@@ -25,19 +20,20 @@ class LoggedOut extends Component {
     ),
     headerStyle: stylesApp.transparentHeaderStyle,
     headerTransparent: true,
-    headerTintColor: colors.white
+    headerTintColor: colors.white,
+    headerTitle: '',
   });
 
   onFacebookPress() {
-    alert("Facebook button pressed");
+    alert('Facebook button pressed');
   }
 
   onCreateAccountPress() {
-    alert("Create Account button pressed");
+    alert('Create Account button pressed');
   }
 
   onMoreOptionsPress() {
-    alert("More options button pressed");
+    alert('More options button pressed');
   }
 
   render() {
@@ -45,7 +41,7 @@ class LoggedOut extends Component {
       <View style={styles.wrapper}>
         <View style={styles.welcomeWrapper}>
           <Image
-            source={require("../../assets/images/airbnb-logo.png")}
+            source={require('../../assets/images/airbnb-logo.png')}
             style={styles.logo}
           />
           <Text style={styles.welcomeText}>Welcome to Airbnb.</Text>
@@ -67,8 +63,7 @@ class LoggedOut extends Component {
 
           <TouchableHighlight
             style={styles.moreOptionsButton}
-            onPress={this.onMoreOptionsPress}
-          >
+            onPress={this.onMoreOptionsPress}>
             <Text style={styles.moreOptionsButtonText}>More options</Text>
           </TouchableHighlight>
 

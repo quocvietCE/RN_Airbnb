@@ -97,7 +97,7 @@ export default (url, method, data, headers) =>
         },
         method,
         url,
-        timeout: 100000,
+        timeout: 60000,
       });
       console.log('response API: ', response);
       resolve(response.data);

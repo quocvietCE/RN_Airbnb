@@ -1,39 +1,30 @@
 import {createStackNavigator} from 'react-navigation-stack';
 
-// import ContainerOne from '../containers/containerOne/ContainerOne';
-// import ContainerTwo from '../containers/containerTwo/ContainerTwo';
-
-// import Header from '../Components/Common/Header/Header';
+import CreateList from '../containers/createList/CreateList';
+import TurnOnNotification from '../containers/turnOnNotifications/TurnOnNotification';
+import LoggedInTabBottomNavigator from './tabBottomNavigator';
 
 const MainTabNavigator = createStackNavigator(
-  // {
-  //   ContainerOneStack: {
-  //     screen: ContainerOne,
-  //     // navigationOptions: {
-  //     //   headerShown: false,
-  //     // },
-  //   },
-  //   ContainerTwoStack: {
-  //     screen: ContainerTwo,
-  //     // navigationOptions: {
-  //     //   // title: 'Header ContainerTwo',
-  //     //   // headerStyle: {
-  //     //   //   backgroundColor: '#f4511e',
-  //     //   // },
-  //     //   // headerTintColor: '#fff',
-  //     //   // headerTitleStyle: {
-  //     //   //   fontWeight: 'bold',
-  //     //   // },
-  //     //   // header: () => <Header />,
-  //     //   headerShown: false,
-  //     // },
-  //   },
-  // },
-  // {
-  //   initialRouteName: 'ContainerOneStack',
-  //   headerMode: 'none',
-  // },
-  null
+  {
+    CreateListStack: {
+      screen: CreateList,
+    },
+    TurnOnNotificationStack: {
+      screen: TurnOnNotification,
+      navigationOptions: {
+        header: () => null,
+      },
+    },
+    LoggedInTabStack: {
+      screen: LoggedInTabBottomNavigator,
+      navigationOptions: {
+        header: () => null,
+      },
+    },
+  },
+  {
+    initialRouteName: 'TurnOnNotificationStack',
+  },
 );
 
 export default MainTabNavigator;

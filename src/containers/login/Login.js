@@ -1,18 +1,38 @@
 import React, {Component} from 'react';
 import {PropTypes} from 'prop-types';
 import InputField from '../../components/form/InputField';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {View, Text, ScrollView, KeyboardAvoidingView} from 'react-native';
 import NextArrowButton from '../../components/buttons/NextArrowButton';
+import NavBarButton from '../../components/buttons/NavBarButton';
 import Notification from '../../components/Notification';
 import {colors, stylesApp} from '../../themes';
 import styles from './styles';
-import Loader from '../../components/Loader';
+// import Loader from '../../components/Loader';
+import {propTypesNavigation} from '../../config/constants/defaultPropTypes';
+Icon.loadFont();
 
 class Login extends Component {
   static navigationOptions = ({navigation}) => ({
+    headerRight: () => (
+      <NavBarButton
+        location="right"
+        color={colors.white}
+        text="Forgot Password"
+        handleButtonPress={() => navigation.navigate('ForgotPasswordStack')}
+      />
+    ),
+    headerLeft: () => (
+      <NavBarButton
+        location="left"
+        icon={<Icon name="angle-left" color={colors.white} size={30} />}
+        handleButtonPress={() => navigation.pop()}
+      />
+    ),
     headerStyle: stylesApp.transparentHeaderStyle,
     headerTransparent: true,
     headerTintColor: colors.white,
+    headerTitle: '',
   });
 
   constructor(props) {
@@ -39,25 +59,14 @@ class Login extends Component {
   handleNextButton() {
     this.setState({loadingVisible: true});
     const {navigate} = this.props.navigation;
-    setTimeout(() => {
-      const {emailAddress, password} = this.state;
-
-      //   if (this.props.logIn(emailAddress, password)) {
-      //     this.setState({formValid: true, loadingVisible: false});
-      //     navigate('TurnOnNotifications');
-      //   } else {
-      //     this.setState({formValid: false, loadingVisible: false});
-      //   }
-
-      this.props.login(emailAddress, password);
-
-      if (this.props.loggedInState) {
-        this.setState({formValid: true, loadingVisible: false});
-        navigate('TurnOnNotifications');
-      } else {
-        this.setState({formValid: false, loadingVisible: false});
-      }
-    }, 2000);
+    const {emailAddress, password} = this.state;
+    this.props.login(emailAddress, password);
+    if (this.props.loggedInState) {
+      this.setState({formValid: true, loadingVisible: false});
+      navigate('TurnOnNotificationStack');
+    } else {
+      this.setState({formValid: false, loadingVisible: false});
+    }
   }
 
   handleEmailChange(email) {
@@ -123,7 +132,7 @@ class Login extends Component {
               inputType="email"
               customStyle={{marginBottom: 30}}
               onChangeText={this.handleEmailChange}
-              showCheckmark={validEmail}
+              showCheckMark={validEmail}
               autoFocus={true}
             />
             <InputField
@@ -135,7 +144,7 @@ class Login extends Component {
               inputType="password"
               customStyle={{marginBottom: 30}}
               onChangeText={this.handlePasswordChange}
-              showCheckmark={validPassword}
+              showCheckMark={validPassword}
             />
           </ScrollView>
           <View style={styles.nextButton}>
@@ -158,26 +167,15 @@ class Login extends Component {
             secondLine="Please try again."
           />
         </View>
-        <Loader modalVisible={loadingVisible} animationType="fade" />
+        {/* <Loader modalVisible={loadingVisible} animationType="fade" /> */}
       </KeyboardAvoidingView>
     );
   }
 }
 
-Login.PropTypes = {
-  logIn: PropTypes.func.isRequired,
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func,
-    goBack: PropTypes.func,
-  }).isRequired,
-};
-
 Login.propTypes = {
-  logIn: PropTypes.func.isRequired,
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func,
-    goBack: PropTypes.func,
-  }).isRequired,
+  login: PropTypes.func.isRequired,
+  navigation: propTypesNavigation,
 };
 
 export default Login;

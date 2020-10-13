@@ -37,13 +37,15 @@ class ErrorMessage extends React.Component {
           <View style={styles.subContainer}>
             <View style={styles.titleErrorBox}>
               <Text style={[styles.errorText]}>
-                {I18n.t('error', {locale: languageCode})}
+                {/* {I18n.t('error', {locale: languageCode})} */}
+                Error
               </Text>
             </View>
             <View style={stylesApp.bgWhite}>
               <View style={styles.infoErrorBox}>
                 <Text style={[styles.infoErrorText]}>
-                  {this.languageLocalize((error && error.error) || error)}
+                  {/* {this.languageLocalize((error && error.error) || error)} */}
+                  {error.error}
                 </Text>
               </View>
 
@@ -52,9 +54,10 @@ class ErrorMessage extends React.Component {
                 activeOpacity={0.9}
                 onPress={this.closeError}>
                 <Text style={styles.txtBtnNormal}>
-                  {I18n.t('okay', {
+                  {/* {I18n.t('okay', {
                     locale: languageCode,
-                  })}
+                  })} */}
+                  Okay
                 </Text>
               </TouchableOpacity>
             </View>

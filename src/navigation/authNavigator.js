@@ -1,8 +1,9 @@
-import {createSwitchNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 import LoggedOut from '../containers/loggedOut/LoggedOut';
 import Login from '../containers/login';
+import ForgotPassword from '../containers/forgotPassword/ForgotPassword';
 
-const AuthTabNavigator = createSwitchNavigator(
+const AuthTabNavigator = createStackNavigator(
   {
     LoggedOutStack: {
       screen: LoggedOut,
@@ -10,9 +11,12 @@ const AuthTabNavigator = createSwitchNavigator(
     LoginStack: {
       screen: Login,
     },
+    ForgotPasswordStack: {
+      screen: ForgotPassword,
+    },
   },
   {
-    initialRouteName: 'LoginStack',
+    initialRouteName: 'LoggedOutStack',
   },
 );
 

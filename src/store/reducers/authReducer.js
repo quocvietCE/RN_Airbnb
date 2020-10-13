@@ -6,15 +6,12 @@ const authReducer = (state = authState.initState, action) => {
     case AUTH_ACTION.USER_LOGIN_SUCCESS:
       return {
         ...state,
-        // account: {...action.result.object},
-        // resLogin: action.result,
-        // token: action.result.access_token,
         loggedInState: action.result,
       };
-    // case AUTH_ACTION.LOG_OUT:
-    //   return {
-    //     ...authState.initState,
-    //   };
+    case AUTH_ACTION.LOG_OUT:
+      return {
+        ...authState.initState,
+      };
     default:
       return state;
   }

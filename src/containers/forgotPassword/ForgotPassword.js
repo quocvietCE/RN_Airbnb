@@ -1,17 +1,28 @@
 import React, {Component} from 'react';
 import {View, Text, KeyboardAvoidingView, ScrollView} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {colors, stylesApp} from '../../themes';
-import InputField from '../components/form/InputField';
+import InputField from '../../components/form/InputField';
 import Notification from '../../components/Notification';
 import NextArrowButton from '../../components/buttons/NextArrowButton';
+import NavBarButton from '../../components/buttons/NavBarButton';
 import Loader from '../../components/Loader';
 import styles from './styles';
+Icon.loadFont();
 
 class ForgotPassword extends Component {
   static navigationOptions = ({navigation}) => ({
+    headerLeft: () => (
+      <NavBarButton
+        handleButtonPress={() => navigation.pop()}
+        location="left"
+        icon={<Icon name="angle-left" color={colors.white} size={30} />}
+      />
+    ),
     headerStyle: stylesApp.transparentHeaderStyle,
     headerTransparent: true,
     headerTintColor: colors.white,
+    headerTitle: '',
   });
 
   constructor(props) {
@@ -63,7 +74,6 @@ class ForgotPassword extends Component {
 
   handleCloseNotification() {
     this.setState({formValid: true});
-    // this.setState({formValid: !this.state.formValid});
   }
 
   render() {
@@ -91,7 +101,7 @@ class ForgotPassword extends Component {
               borderBottomColor={colors.white}
               inputType="email"
               onChangeText={this.handleEmailChange}
-              showCheckmark={validEmail}
+              showCheckMark={validEmail}
             />
           </ScrollView>
           <NextArrowButton

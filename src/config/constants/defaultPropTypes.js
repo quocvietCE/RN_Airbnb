@@ -22,3 +22,7 @@ export const defaultPropsProductDetail = PropTypes.shape({
   image: PropTypes.string,
   price: PropTypes.number,
 });
+
+export const propTypesNavigation = PropTypes.shape({
+  navigate: PropTypes.func,
+}).isRequired;
