@@ -114,6 +114,7 @@ class InputField extends Component {
           placeholder={placeholder}
           defaultValue={inputValue}
           value={inputValue}
+          selectionColor={'white'}
         />
       </View>
     );
