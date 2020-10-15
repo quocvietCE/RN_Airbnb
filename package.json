@@ -6,13 +6,17 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --verbose --coverage",
+    "test:update": "jest --verbose --coverage --updateSnapshot",
+    "test:watch": "jest --verbose --watch",
+    "coverage": "jest --verbose --coverage && open ./coverage/lcov-report/index.html",
     "lint": "eslint ."
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "^0.1.10",
     "axios": "^0.20.0",
+    "mock-async-storage": "^2.2.0",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-native": "0.63.3",
@@ -40,13 +44,32 @@
     "@babel/core": "^7.11.6",
     "@babel/runtime": "^7.11.2",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@testing-library/react-native": "^7.0.2",
     "babel-jest": "^26.5.2",
     "eslint": "^7.10.0",
     "jest": "^26.5.2",
     "metro-react-native-babel-preset": "^0.63.0",
-    "react-test-renderer": "16.13.1"
+    "react-test-renderer": "16.13.1",
+    "redux-mock-store": "^1.5.4"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "cacheDirectory": "./cache",
+    "coveragePathIgnorePatterns": [
+      "./app/utils/vendor"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 80
+      }
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!react-native|react-clone-referenced-element|react-navigation)"
+    ],
+    "setupFiles": [
+      "./node_modules/react-native-gesture-handler/jestSetup.js",
+      "<rootDir>/src/helpers/setup-tests.js"
+    ],
+    "collectCoverage": true
   }
 }
