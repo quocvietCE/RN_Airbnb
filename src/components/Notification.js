@@ -43,14 +43,18 @@ class Notification extends Component {
     const {type, firstLine, secondLine, showNotification} = this.props;
     showNotification
       ? this.animateNotification(0)
-      : this.animateNotification(-80);
-    // const {positionValue} = this.state;
+      : this.animateNotification(80);
+    const {positionValue} = this.state;
+    console.log('positionValue: ', positionValue);
     return (
       <Animated.View
         style={[
           {
-            // marginBottom: positionValue,
-            marginBottom: showNotification ? 0 : -80,
+            transform: [
+              {
+                translateY: positionValue,
+              },
+            ],
           },
           styles.wrapper,
         ]}>

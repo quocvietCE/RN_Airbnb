@@ -13,6 +13,7 @@ import {
 import HeartButton from '../buttons/HeartButton';
 import Stars from '../Stars';
 import ImageUrl from '../ImageUrl/ImageUrl';
+import ImageLoad from '../ImageUrl/ImageLoad';
 import {colors} from '../../themes';
 Icon.loadFont();
 
@@ -47,18 +48,25 @@ export default class Listings extends Component {
               />
             </View>
           ) : null}
-          <Image
+          {/* <Image
             style={styles.image}
             resizeMode="contain"
             // source={listing.photo}
             source={{uri: listing.photo}}
-          />
+          /> */}
           {/* <ImageUrl
-            sizeWidth={100}
+            sizeWidth={157}
             sizeHeight={100}
             sizeBorderRadius={8}
             source={listing.photo}
+            isFullPic
+            resizeMode="contain"
           /> */}
+          <ImageLoad
+            style={styles.image}
+            resizeMode="contain"
+            source={{uri: listing.photo}}
+          />
           <Text style={[{color: listing.color}, styles.listingType]}>
             {listing.type}
           </Text>

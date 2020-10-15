@@ -11,7 +11,7 @@ const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
   // blacklist: ['auth', 'app'],
-  blacklist: ['app'],
+  blacklist: ['app, listing'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

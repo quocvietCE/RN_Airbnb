@@ -1,7 +1,4 @@
-import {put, select} from 'redux-saga/effects';
-import AsyncStorage from '@react-native-community/async-storage';
-
-import {requestLogin} from '../../services/auth';
+import {put} from 'redux-saga/effects';
 
 import {AUTH_ACTION} from '../actionTypes';
 import SYSTEM_POPUP from '../../config/constants/systemErrorTypes';

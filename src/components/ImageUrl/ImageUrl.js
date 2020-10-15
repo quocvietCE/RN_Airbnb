@@ -17,6 +17,7 @@ class ImageUrl extends React.PureComponent {
     Animated.timing(fadeAnim, {
       toValue: 0,
       duration: 200,
+      useNativeDriver: true,
     }).start(() => this.setState({}));
   }
 
@@ -30,6 +31,7 @@ class ImageUrl extends React.PureComponent {
       source,
       isFullPic,
       bgColor,
+      resizeMode,
     } = this.props;
     const isSvg = String(source).search('.svg') > -1;
     if (isSvg) {
@@ -43,7 +45,7 @@ class ImageUrl extends React.PureComponent {
           borderRadius: sizeBorderRadius,
           backgroundColor: bgColor || 'white',
         }}>
-        <Animated.View
+        {/* <Animated.View
           style={[
             styles.animatedImage,
             styles.absolute,
@@ -52,7 +54,7 @@ class ImageUrl extends React.PureComponent {
             {borderRadius: sizeBorderRadius, opacity: fadeAnim},
           ]}>
           <ActivityIndicator size="small" color="rgba(88, 175, 43, 1)" />
-        </Animated.View>
+        </Animated.View> */}
         {!isSvg ? (
           <View
             style={[
@@ -72,7 +74,7 @@ class ImageUrl extends React.PureComponent {
                 },
                 styles.flexOne,
               ]}
-              resizeMode="contain"
+              resizeMode={resizeMode}
             />
           </View>
         ) : (
@@ -109,6 +111,7 @@ ImageUrl.propTypes = {
   ]),
   defaultImage: PropTypes.string,
   bgColor: PropTypes.string,
+  resizeMode: PropTypes.string,
 };
 
 ImageUrl.defaultProps = {
@@ -119,6 +122,7 @@ ImageUrl.defaultProps = {
   source: null,
   defaultImage: '',
   bgColor: '',
+  resizeMode: 'contain',
 };
 
 export default ImageUrl;

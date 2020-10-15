@@ -37,7 +37,7 @@ class HeartButton extends Component {
     const {color, selectedColor} = this.props;
 
     return (
-      <TouchableOpacity onPress={this.addToFavorite}>
+      <TouchableOpacity testID="heartBtn" onPress={this.addToFavorite}>
         <View>
           <Icon
             name={addedToFavorite ? 'heart' : 'heart-o'}
