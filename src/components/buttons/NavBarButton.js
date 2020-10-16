@@ -12,11 +12,13 @@ class NavBarButton extends Component {
       content = (
         <Text style={[{color}, marginPosition, styles.buttonText]}>{text}</Text>
       );
-    } else if (icon) {
+    } else {
       content = <View style={marginPosition}>{icon}</View>;
     }
     return (
-      <TouchableOpacity onPress={handleButtonPress}>{content}</TouchableOpacity>
+      <TouchableOpacity testID="navBarButton" onPress={handleButtonPress}>
+        {content}
+      </TouchableOpacity>
     );
   }
 }

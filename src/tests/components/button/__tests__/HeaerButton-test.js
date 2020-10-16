@@ -1,7 +1,7 @@
 import 'react-native';
 import React from 'react';
-import HeartButton from '../HeartButton';
-import {colors} from '../../../themes';
+import HeartButton from '../../../../components/buttons/HeartButton';
+import {colors} from '../../../../themes';
 
 import TestRenderer, {act} from 'react-test-renderer';
 
