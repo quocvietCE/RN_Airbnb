@@ -14,7 +14,7 @@ class ForgotPassword extends Component {
   static navigationOptions = ({navigation}) => ({
     headerLeft: () => (
       <NavBarButton
-        handleButtonPress={() => navigation.pop()}
+        handleButtonPress={() => navigation.navigate('LoginStack')}
         location="left"
         icon={<Icon name="angle-left" color={colors.white} size={30} />}
       />

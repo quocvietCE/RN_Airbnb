@@ -17,9 +17,9 @@ function* handleGetListing() {
     console.log('LISTING_ACTION.GET_LISTING_DATA_FAILURE error: ', error);
     yield put({
       type: LISTING_ACTION.GET_LISTING_DATA_FAILURE,
-      error: {
-        type: SYSTEM_POPUP.GENERAL,
-        error: error.data.error || error,
+      errorObject: {
+        errorType: SYSTEM_POPUP.GENERAL,
+        errorMessage: error.data.error || error,
       },
     });
   }

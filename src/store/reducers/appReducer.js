@@ -19,12 +19,12 @@ const authReducer = (state = appState.initState, action) => {
     case LISTING_ACTION.GET_LISTING_DATA_FAILURE:
       return {
         ...state,
-        ...appState.setRequestFailed(action.error),
+        ...appState.setRequestFailed(action.errorObject),
       };
     case APP_ACTION.CLEAR_ERROR:
       return {
         ...state,
-        errorMessage: null,
+        errorObject: {},
       };
     default:
       return state;

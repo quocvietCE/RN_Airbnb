@@ -52,7 +52,8 @@ class ImageLoad extends React.Component {
         style={[styles.backgroundImage, style]}
         source={source}
         resizeMode={resizeMode}
-        borderRadius={borderRadius}>
+        // borderRadius={borderRadius}
+        borderRadius={8}>
         {this.state.isLoaded && !this.state.isError ? (
           children
         ) : (

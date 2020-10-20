@@ -14,6 +14,11 @@ class ErrorMessage extends React.Component {
     clearError();
   };
 
+  tryAgain = () => {
+    const {clearError} = this.props;
+    clearError();
+  };
+
   languageLocalize = (msgLabel) => {
     const {languageCode} = this.props;
     return msgLabel
@@ -22,8 +27,10 @@ class ErrorMessage extends React.Component {
   };
 
   render() {
-    const {error, languageCode} = this.props;
-    const isShowError = error && error.type === SYSTEM_POPUP.GENERAL;
+    const {errorObject, languageCode} = this.props;
+    const isShowError =
+      errorObject && errorObject.errorType === SYSTEM_POPUP.GENERAL;
+    console.log('error: ', errorObject);
     if (!isShowError) {
       return null;
     }
@@ -41,11 +48,11 @@ class ErrorMessage extends React.Component {
                 Error
               </Text>
             </View>
-            <View style={stylesApp.bgWhite}>
+            <View style={[stylesApp.bgWhite]}>
               <View style={styles.infoErrorBox}>
                 <Text style={[styles.infoErrorText]}>
                   {/* {this.languageLocalize((error && error.error) || error)} */}
-                  {error.error}
+                  {errorObject.errorMessage}
                 </Text>
               </View>
 
@@ -60,6 +67,18 @@ class ErrorMessage extends React.Component {
                   Okay
                 </Text>
               </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.btnNormal}
+                activeOpacity={0.9}
+                onPress={this.tryAgain}>
+                <Text style={styles.txtBtnNormal}>
+                  {/* {I18n.t('okay', {
+                    locale: languageCode,
+                  })} */}
+                  Try Again
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -70,13 +89,19 @@ class ErrorMessage extends React.Component {
 
 ErrorMessage.propTypes = {
   languageCode: PropTypes.string,
-  error: PropTypes.string,
+  errorObject: PropTypes.shape({
+    errorType: PropTypes.string,
+    errorMessage: PropTypes.string,
+  }),
   clearError: PropTypes.func.isRequired,
 };
 
 ErrorMessage.defaultProps = {
   languageCode: 'en',
-  error: '',
+  errorObject: {
+    errorType: '',
+    errorMessage: '',
+  },
 };
 
 export default ErrorMessage;

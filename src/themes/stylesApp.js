@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import Colors from './colors';
+import colors from './colors';
 
 const styles = StyleSheet.create({
   relative: {
@@ -244,10 +244,10 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   bgWhite: {
-    backgroundColor: Colors.snow,
+    backgroundColor: colors.white,
   },
   errorBg: {
-    backgroundColor: Colors.errorBg,
+    backgroundColor: colors.red,
   },
   transparentHeaderStyle: {
     elevation: 0,

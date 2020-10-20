@@ -31,7 +31,10 @@ describe('Test appReducer', () => {
     expect(
       appReducer(appState.initState, {
         type: AUTH_ACTION.USER_LOGIN_FAILURE,
-        error: 'Network Error',
+        errorObject: {
+          errorType: 'GENERAL',
+          errorMessage: 'Network Error',
+        },
       }),
     ).toMatchSnapshot();
   });
@@ -40,12 +43,18 @@ describe('Test appReducer', () => {
     expect(
       appReducer(appState.initState, {
         type: AUTH_ACTION.USER_LOGIN_FAILURE,
-        error: 'Network Error',
+        errorObject: {
+          errorType: 'GENERAL',
+          errorMessage: 'Network Error',
+        },
       }),
     ).toEqual({
       ...appState.initState,
-      errorMessage:
-        'Sorry, it looks like the Username and/or Password you provided does not match our records',
+      errorObject: {
+        errorType: 'GENERAL',
+        errorMessage:
+          'Sorry, it looks like the Username and/or Password you provided does not match our records',
+      },
       isLoading: false,
     });
   });

@@ -66,6 +66,8 @@ export default class Listings extends Component {
             style={styles.image}
             resizeMode="contain"
             source={{uri: listing.photo}}
+            borderRadius={8}
+            customImagePlaceholderDefaultStyle={styles.image}
           />
           <Text style={[{color: listing.color}, styles.listingType]}>
             {listing.type}

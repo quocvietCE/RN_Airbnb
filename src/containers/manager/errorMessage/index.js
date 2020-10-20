@@ -7,7 +7,7 @@ const {clearError} = appActions;
 
 const mapStateToProps = (state) => ({
   languageCode: state.app.languageCode,
-  error: state.app.errorMessage,
+  errorObject: state.app.errorObject,
 });
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(

@@ -11,7 +11,7 @@ export default StyleSheet.create({
     width: '80%',
     paddingHorizontal: 10,
     paddingBottom: 10,
-    backgroundColor: colors.mainBg,
+    backgroundColor: colors.blue,
     borderRadius: 5,
   },
   titleErrorBox: {
@@ -21,7 +21,7 @@ export default StyleSheet.create({
   },
   errorText: {
     fontSize: Fonts.size.h4, // 26
-    fontFamily: 'bold',
+    fontWeight: 'bold',
   },
   infoErrorBox: {
     paddingVertical: 20,
@@ -40,15 +40,14 @@ export default StyleSheet.create({
     paddingVertical: 10,
   },
   btnNormal: {
-    alignItems: 'center',
-    flex: 1,
     marginHorizontal: 20,
     borderRadius: 4,
     backgroundColor: 'rgba(14, 115, 15, 1)',
+    marginBottom: 10,
   },
   txtBtnNormal: {
     fontSize: Fonts.size.h5, // 20
-    fontFamily: Fonts.type.bold,
+    // fontFamily: Fonts.type.bold,
     fontWeight: 'bold',
     lineHeight: 60,
     textAlign: 'center',

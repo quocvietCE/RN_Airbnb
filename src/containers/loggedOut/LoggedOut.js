@@ -37,6 +37,8 @@ class LoggedOut extends Component {
   }
 
   render() {
+    const {navigation} = this.props;
+    console.log('navigation: ', navigation);
     return (
       <View style={styles.wrapper}>
         <View style={styles.welcomeWrapper}>

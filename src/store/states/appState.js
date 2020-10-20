@@ -1,17 +1,17 @@
 const initState = {
   languageCode: 'en',
 
-  errorMessage: null,
+  errorObject: {},
   isLoading: false,
 };
 
 const setRequestSuccess = () => ({
-  errorMessage: null,
+  errorObject: {},
   isLoading: false,
 });
 
-const setRequestFailed = (message) => ({
-  errorMessage: message,
+const setRequestFailed = (errorObject) => ({
+  errorObject: errorObject,
   isLoading: false,
 });
 

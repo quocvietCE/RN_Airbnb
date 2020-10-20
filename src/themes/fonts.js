@@ -44,7 +44,7 @@ const style = {
     fontSize: size.h6,
   },
   normal: {
-    fontFamily: type.base,
+    // fontFamily: type.base,
     fontSize: size.regular,
   },
   description: {
