@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test appReducer Check AUTH_ACTION.USER_LOGIN_FAILURE type 1`] = `
+Object {
+  "errorMessage": "Network Error",
+  "isLoading": false,
+  "languageCode": "en",
+}
+`;
+
+exports[`Test appReducer Check Snapshot APP_ACTION.CLEAR_ERROR type 1`] = `
+Object {
+  "errorObject": Object {},
+  "isLoading": false,
+  "languageCode": "en",
+  "objectError": Object {},
+}
+`;
+
+exports[`Test appReducer Check Snapshot AUTH_ACTION.USER_LOGIN_FAILURE type 1`] = `
+Object {
+  "errorObject": undefined,
+  "isLoading": false,
+  "languageCode": "en",
+}
+`;
+
+exports[`Test appReducer Check Snapshot AUTH_ACTION.USER_LOGIN_SUCCESS type 1`] = `
+Object {
+  "errorObject": Object {},
+  "isLoading": false,
+  "languageCode": "en",
+}
+`;
+
+exports[`Test appReducer returns the same appReducer state on an unhandled state 1`] = `
+Object {
+  "errorObject": Object {},
+  "isLoading": false,
+  "languageCode": "en",
+}
+`;

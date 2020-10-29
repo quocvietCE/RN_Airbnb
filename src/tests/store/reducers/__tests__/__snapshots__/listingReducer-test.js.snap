@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test listingReducer returns the same listingReducer state on an unhandled state 1`] = `
+Object {
+  "favouriteListings": Array [],
+  "listingData": Array [],
+}
+`;

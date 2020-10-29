@@ -64,7 +64,7 @@ class AppNavigator extends Component {
     const {loggedInState, networkIsConnected} = this.props;
     const LayoutAppContainer = AppContainer(loggedInState);
     return (
-      <View style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1}}>
         {!networkIsConnected && (
           <SafeAreaView
             style={{
@@ -86,7 +86,7 @@ class AppNavigator extends Component {
         <LayoutAppContainer
           ref={(ref) => NavigationService.setContainer(ref)}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }
